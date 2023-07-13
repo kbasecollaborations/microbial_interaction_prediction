@@ -4,6 +4,8 @@ import logging
 import os
 
 from installed_clients.KBaseReportClient import KBaseReport
+from microbial_interaction_prediction.Utils.AntibacterialUtils import AntibacterialUtils
+
 #END_HEADER
 
 
@@ -35,8 +37,10 @@ class microbial_interaction_prediction:
         #BEGIN_CONSTRUCTOR
         self.callback_url = os.environ['SDK_CALLBACK_URL']
         self.shared_folder = config['scratch']
+        self.ws_url = config["workspace-url"]
         logging.basicConfig(format='%(created)s %(levelname)s: %(message)s',
                             level=logging.INFO)
+        self.config = config
         #END_CONSTRUCTOR
         pass
 
@@ -51,14 +55,12 @@ class microbial_interaction_prediction:
         # ctx is the context object
         # return variables are: output
         #BEGIN run_microbial_interaction_prediction
-        report = KBaseReport(self.callback_url)
-        report_info = report.create({'report': {'objects_created':[],
-                                                'text_message': params['parameter_1']},
-                                                'workspace_name': params['workspace_name']})
-        output = {
-            'report_name': report_info['name'],
-            'report_ref': report_info['ref'],
-        }
+        genome_refs = params['genome_refs']
+
+        f = AntibacterialUtils(self.config, params)
+        output = f.run_antibacterial_main(genome_refs)
+        print (output)
+
         #END run_microbial_interaction_prediction
 
         # At some point might do deeper type checking...
