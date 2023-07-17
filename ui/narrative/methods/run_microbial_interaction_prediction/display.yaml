@@ -1,10 +1,10 @@
 #
 # define display information
 #
-name: Run Antibacterial analysis
+name: Biosynthetic Gene Cluster (BGC) Antimicrobial Activity Prediction
 
 tooltip: |
-    Run Antibacterial analysis
+      Antimicrobial activity prediction
 
 screenshots: []
 
@@ -33,5 +33,5 @@ parameters :
             Genomes
 
 description : |
-    <p>Run Antibacterial analysis</p>
+    <p>Run Antimicrobial</p>
 
