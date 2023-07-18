@@ -31,6 +31,14 @@ parameters :
             Genomes
         long-hint  : |
             Genomes
+    no_SSN :
+        ui-name : |
+          Do not use SSN
+        short-hint : |
+            Do not use Sequence similarity network features
+        long-hint  : |
+            Do not use Sequence similarity network features. This increases accuracy of prediction but takes much longer time.
+
 
 description : |
     <h1 class="code-line" data-line-start="0" data-line-end="1"><a id="Biosynthetic_Gene_Cluster_BGC_activity_prediction_0"></a>Biosynthetic Gene Cluster (BGC) activity prediction</h1>

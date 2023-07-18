@@ -92,10 +92,10 @@ class AntibacterialUtils:
          return {"fasta":n_fasta_file_path} 
 
 
-    def run_antibacterial_multiple(self, output_dir , fasta_file_paths):
+    def run_antibacterial_multiple(self, output_dir , no_SSN, fasta_file_paths):
 
         fasta_files = " ".join(fasta_file_paths)
-        argstring =  ANTIBACTERIAL_SCRIPT + " "   +  output_dir + " " + fasta_files
+        argstring =  ANTIBACTERIAL_SCRIPT + " " +  output_dir + " " + no_SSN + " " + fasta_files
         print (argstring)
         args = argstring.split(" ")
         proc = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)  # nosec
@@ -153,7 +153,7 @@ class AntibacterialUtils:
         }
 
     
-    def run_antibacterial_main(self,genome_refs):
+    def run_antibacterial_main(self,genome_refs, no_SSN):
             analysis_dir = os.path.join(self.scratch, str(uuid.uuid4()))
             result_dir = os.path.join(self.scratch, str(uuid.uuid4()))
 
@@ -166,7 +166,7 @@ class AntibacterialUtils:
                 fasta_file_path = g_download.get('fasta')
                 genome_fasta_paths.append(fasta_file_path)
 
-            output_dir = self.run_antibacterial_multiple(analysis_dir, genome_fasta_paths) 
+            output_dir = self.run_antibacterial_multiple(analysis_dir, no_SSN, genome_fasta_paths) 
             aggregate_html = os.path.join(analysis_dir, "aggregated_results.html")
             index_html = os.path.join(result_dir, "index.html")
             shutil.copy(aggregate_html, index_html)

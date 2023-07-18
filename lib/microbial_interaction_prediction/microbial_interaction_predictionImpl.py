@@ -56,9 +56,10 @@ class microbial_interaction_prediction:
         # return variables are: output
         #BEGIN run_microbial_interaction_prediction
         genome_refs = params['genome_refs']
+        no_SSN = "True" if params['no_SSN']=="1" else "False"
 
         f = AntibacterialUtils(self.config, params)
-        output = f.run_antibacterial_main(genome_refs)
+        output = f.run_antibacterial_main(genome_refs, no_SSN)
         print (output)
 
         #END run_microbial_interaction_prediction

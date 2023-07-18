@@ -4,7 +4,7 @@
         "pranjan77"
     ],
     "contact": "",
-    "categories": ["active"],
+    "categories": ["active", "comparative_genomics"],
     "widgets": {
         "input": null,
         "output": null
@@ -12,7 +12,7 @@
     "parameters": [ 
         {
             "id": "genome_refs",
-            "optional": true,
+            "optional": false,
             "advanced": false,
             "allow_multiple": true,
             "default_values": [ "" ],
@@ -20,7 +20,20 @@
             "text_options": {
                 "valid_ws_types": ["KBaseGenomes.Genome" ]
             }
+        },
+        {
+            "id": "no_SSN",
+            "optional": true,
+            "advanced": false,
+            "allow_multiple": false,
+            "default_values": [ "1" ],
+            "field_type": "checkbox",
+             "checkbox_options":{
+                "checked_value": 1,
+                "unchecked_value": 0
+            }
         }
+
     ],
     "behavior": {
         "service-mapping": {
@@ -37,7 +50,12 @@
                 },{
                     "input_parameter": "genome_refs",
                     "target_property": "genome_refs"
+                },
+                {
+                    "input_parameter": "no_SSN",
+                    "target_property": "no_SSN"
                 }
+
             ],
             "output_mapping": [
                 {
