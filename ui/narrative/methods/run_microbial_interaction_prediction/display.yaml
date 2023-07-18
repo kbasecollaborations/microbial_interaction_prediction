@@ -65,7 +65,7 @@ description : |
     <li class="has-line-data" data-line-start="25" data-line-end="27">Antigramnegative</li>
     </ol>
 
-publication :
+publications :
     - pmid: 21672958
       display-text: |
           Medema, M. H. et al. antiSMASH: rapid identification, annotation and analysis of secondary metabolite biosynthesis gene clusters in bacterial and fungal genome sequences. Nucleic Acids Research 39, W339–W346 (2011).
