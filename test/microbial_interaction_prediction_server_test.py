@@ -65,3 +65,6 @@ class microbial_interaction_predictionTest(unittest.TestCase):
         # self.assertEqual(ret[...], ...) or other unittest methods
         ret = self.serviceImpl.run_microbial_interaction_prediction(self.ctx, {'workspace_name': "pranjan77:narrative_1689190543032",
                                                              "genome_refs": ["71242/11/1", "71242/10/1"] })
+
+        #ret = self.serviceImpl.run_microbial_interaction_prediction(self.ctx, {'workspace_name': "dkishore:narrative_1689701166338",
+        #                                                    "genome_refs": ["152607/13/1", "152607/12/1"] })
