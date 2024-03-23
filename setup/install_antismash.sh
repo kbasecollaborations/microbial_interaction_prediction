@@ -11,7 +11,7 @@ mamba create -n antismash python=3.9
 source activate antismash
 
 mamba install -c bioconda -c conda-forge antismash=7.1.0
-pip uninstall --no-input nrpys
+pip uninstall -y nrpys
 pip install --no-input --upgrade-strategy only-if-needed nrpys
 
 download-antismash-databases && antismash --prepare-data
