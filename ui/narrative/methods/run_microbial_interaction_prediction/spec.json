@@ -49,7 +49,9 @@
                     "target_property": "workspace_id"
                 },{
                     "input_parameter": "genome_refs",
-                    "target_property": "genome_refs"
+                    "target_property": "genome_refs",
+		    "target_type_transform":"ref"
+
                 },
                 {
                     "input_parameter": "no_SSN",
