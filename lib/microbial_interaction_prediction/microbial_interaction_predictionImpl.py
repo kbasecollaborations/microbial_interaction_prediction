@@ -55,6 +55,10 @@ class microbial_interaction_prediction:
         # ctx is the context object
         # return variables are: output
         #BEGIN run_microbial_interaction_prediction
+        print ("####################\n")
+        print (params)
+        print ("####################\n")
+
         genome_refs = params['genome_refs']
         no_SSN = "True" if params['no_SSN']=="1" else "False"
 
