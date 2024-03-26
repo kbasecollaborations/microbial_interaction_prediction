@@ -59,7 +59,26 @@ class microbial_interaction_prediction:
         print (params)
         print ("####################\n")
 
-        genome_refs = params['genome_refs']
+
+        genome_refs = list()
+        for genome_input_ref in genome_input_refs:
+            wsClient = workspaceService(self.ws_url, token=ctx['token'])
+            genome_info = wsClient.get_object_info_new({'objects': [{'ref': genome_input_ref}]})[0]
+            genome_input_type = genome_info[2]
+
+            if 'GenomeSet' in genome_input_type:
+                genomeSet_object = wsClient.get_objects2({'objects': [{'ref': genome_input_ref}]})['data'][0]['data']
+                for ref_dict in genomeSet_object['elements'].values():
+                    genome_refs.append(ref_dict['ref'])
+            else:
+                genome_refs.append(genome_input_ref)
+
+
+
+        genome_refs = list(set(genome_refs))
+        print (genome_refs)
+
+
         no_SSN = "True" if params['no_SSN']=="1" else "False"
 
         f = AntibacterialUtils(self.config, params)
