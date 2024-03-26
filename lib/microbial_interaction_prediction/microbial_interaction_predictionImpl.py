@@ -5,7 +5,7 @@ import os
 
 from installed_clients.KBaseReportClient import KBaseReport
 from microbial_interaction_prediction.Utils.AntibacterialUtils import AntibacterialUtils
-
+from installed_clients.WorkspaceClient import Workspace as workspaceService
 #END_HEADER
 
 
@@ -59,6 +59,7 @@ class microbial_interaction_prediction:
         print (params)
         print ("####################\n")
 
+        genome_input_refs = params['genome_refs']
 
         genome_refs = list()
         for genome_input_ref in genome_input_refs:
