@@ -45,6 +45,26 @@ description : |
     <p>Microorganisms produce a variety of secondary metabolites whose functions can be understood by studying their molecular structure, biosynthesis, and biological activity. Bioinformatics analysis of microbial genomes can reveal the genetic instructions for producing these Biosynthetic Gene Clusters (BGCs). antiSMASH is a popular tool that uses a rule-based method to predict BGCs in a given microbial genome.</p>
     <p>This app uses the genomic sequences of these BGCs to predict their potential biological activities using a machine-learning classifier. The features used in the classifier are derived from annotations of these BGCs (such as Pfam domains, smCOG annotations, etc.) together with information about resistomes predicted using the Resistance Gene Identifier (RGI). In this app, we specifically focus on antibiotic activity.</p>
 
+    <p>The BGC activity prediction workflow is illustrated below:<br>
+    <img src="https://github.com/dileep-kishore/antibiotic-prediction/blob/main/assets/workflow.jpg?raw=true" alt="Workflow" width="100%"></p>
+    <p>The BGC activity prediction app accepts a microbial genome in fasta format as input and processes it using antiSMASH and RGI to extract features. These features are used to predict the BGC function.</p>
+    <p>Features that are used for prediction:</p>
+    <ul>
+    <li>PFAM (from antiSMASH)</li>
+    <li>CDS motif (from antiSMASH)</li>
+    <li>smCOG (from antiSMASH)</li>
+    <li>polyketide and non-ribosomal peptide monomer prediction annotations (from antiSMASH)</li>
+    <li>Sequence Similarity Network of PFAM domains (from antiSMASH)</li>
+    <li>Resistance gene markers (from RGI)</li>
+    </ul>
+    <p>The classifiers used in this app are based on those published in Walker et al. 2021. They are trained using BGCs from the MiBIG (v1.4) database. Only those BGCs that has known antibiotic activities (types listed below), based on evidence in literature, were used for training the classifier. The workflow currently supports the prediction of four antibiotic activities:</p>
+    <ul>
+    <li>Antibacterial</li>
+    <li>Antifungal</li>
+    <li>Antigrampositive</li>
+    <li>Antigramnegative</li>
+    </ul>
+
 
 
 
