@@ -42,6 +42,11 @@ parameters :
 
 description : |
     <h1>Biosynthetic Gene Cluster (BGC) activity prediction</h1>
+    <p>Microorganisms produce a variety of secondary metabolites whose functions can be understood by studying their molecular structure, biosynthesis, and biological activity. Bioinformatics analysis of microbial genomes can reveal the genetic instructions for producing these Biosynthetic Gene Clusters (BGCs). antiSMASH is a popular tool that uses a rule-based method to predict BGCs in a given microbial genome.</p>
+    <p>This app uses the genomic sequences of these BGCs to predict their potential biological activities using a machine-learning classifier. The features used in the classifier are derived from annotations of these BGCs (such as Pfam domains, smCOG annotations, etc.) together with information about resistomes predicted using the Resistance Gene Identifier (RGI). In this app, we specifically focus on antibiotic activity.</p>
+
+
+
 
 publication :
     - 
