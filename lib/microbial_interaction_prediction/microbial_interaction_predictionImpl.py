@@ -79,8 +79,8 @@ class microbial_interaction_prediction:
         genome_refs = list(set(genome_refs))
         print (genome_refs)
 
-
-        no_SSN = "True" if params['no_SSN']=="1" else "False"
+       
+        no_SSN = "True" if params['no_SSN']==1 else "False"
 
         f = AntibacterialUtils(self.config, params)
         output = f.run_antibacterial_main(genome_refs, no_SSN)
